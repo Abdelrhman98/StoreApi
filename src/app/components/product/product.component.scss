@@ -1,0 +1,80 @@
+
+@import  '../scssUtil/variables',
+'../scssUtil/reset',
+'../scssUtil/mixins';
+
+
+div.card{
+
+
+
+  border-radius: 30px;
+  max-height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  margin: auto;
+
+
+  div.img-container{
+    border:1px sold red;
+    overflow: hidden;
+    transition: 0.5 all ease-in-out;
+    max-height: 79vh;
+
+    img{
+      filter:grayscale(1);
+      transition: 0.5s all ease-in-out;
+
+
+      &:hover{
+        transform-origin: top;
+        transform: scale(1.2);
+        filter: grayscale(0);
+      }
+    }
+  }
+
+  div.info{
+    padding-top:40px;
+    padding-right: 20px;
+    div.title{
+      color:$red;
+      font-weight: 800;
+      word-spacing: 2px;
+      text-transform: uppercase;
+    }
+    div.desc{
+      color:#333;
+      padding-top: 10px;
+      letter-spacing: 2px;
+    }
+  }
+
+
+  div.category{
+    margin-top: 10px;
+    padding:10px;
+    text-align: center;
+    width: 200px;
+    font-size: 10px;
+    background-color: #516BEB;
+    border-radius: 20px;
+    color:#fff;
+  }
+
+  div.controls{
+    width: 100%;
+    margin-right: 20px;
+    button{
+      width: 50%;
+    }
+    .delete{
+      background-color: $red!important;
+      color:#fff;
+    }
+  }
+.progress{
+  margin: 14px ;
+}
+}

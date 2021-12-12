@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row ">
+<form class="product-form" [formGroup]="productForm" enctype="multipart/form-data" (ngSubmit)="submitForm()">
+  <h2>Add New Product</h2>
+  <div class="row justify-content-between">
+  <mat-form-field class=" col-sm-12 col-md-4" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input [value]='editedProduct?.title' matInput placeholder="Ex. Mens Cotton Jacket" formControlName="title"   name="title">
+    <mat-hint class="error" align="start" *ngIf="productForm.get('title')?.errors && (productForm.get('title')?.touched || productForm.get('title')?.dirty )">Enter Valid Name.</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field  class="col-sm-12 col-md-4" appearance="fill" floatLabel="always">
+    <mat-label>Price</mat-label>
+    <input [value]='editedProduct?.price' matInput placeholder="Ex. 200"  name="price" formControlName="price" type="number">
+    <span matSuffix>EGP</span>
+    <mat-hint class="error" align="start" *ngIf="productForm.get('price')?.errors && productForm.get('price')?.touched">Enter Valid Price.</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill"  class="col-sm-12 col-md-4">
+    <mat-label>Category</mat-label>
+    <mat-select   name="category" formControlName="category" [(value)]="selectedCategory">
+      <mat-option  *ngFor="let category of categories" value="{{category}}">{{category}}</mat-option>
+    </mat-select>
+    <mat-hint class="error" align="start" *ngIf="productForm.get('category')?.errors && productForm.get('category')?.touched">Select Valid Category.</mat-hint>
+  </mat-form-field>
+</div>
+  <mat-form-field appearance="fill" class="full col-sm-12 ">
+    <mat-label>Description</mat-label>
+    <textarea rows="6" [value]='editedProduct?.description' matInput  formControlName="description" name="description"></textarea>
+    <mat-hint class="error" align="start" *ngIf="productForm.get('description')?.errors && productForm.get('description')?.touched">Enter Valid description.</mat-hint>
+  </mat-form-field>
+
+  <div *ngIf="mode!='edit'">
+    <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
+    <input hidden type="file" #filePicker (change)="onImagePicked($event)">
+  </div>
+
+  <div class="submit">
+    <button mat-raised-button	 type="submit" [disabled]="!productForm.valid" type="button"   class="subBtn" (click)="submitForm()">Save Product</button>
+  </div>
+
+</form>
+  </div>
+</div>

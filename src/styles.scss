@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@import  './app/components/scssUtil/mixins',
+        './app/components/scssUtil/reset',
+        './app/components/scssUtil/variables';
+body {
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #ddd;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+
+}
+
+a{
+  color:#fff;
+  &:hover{
+    color:#fff;
+  }
+}

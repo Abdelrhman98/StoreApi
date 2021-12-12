@@ -1,0 +1,41 @@
+@import  '../scssUtil/variables',
+        '../scssUtil/reset',
+        '../scssUtil/mixins';
+
+$main-blue:#4285F4;
+form.product-form{
+  width: 80vw;
+  background-color: #fff;
+  border-right: 15px solid $main-blue;
+  margin: 0px auto;
+  padding:30px;
+  $body-font: "Roboto";
+
+  .example-full-width{
+    margin-right: 10px;
+
+  }
+  h2{
+    color:$main-blue;
+    font-weight: 700;
+    font-family: $open-sans;
+    letter-spacing: 2px;
+    padding:1rem;
+  }
+  .full{
+    width: 100%;
+  }
+  .subBtn{
+    padding:10px;
+    width:100%;
+
+    margin: 10px auto!important;
+    color:#fff;
+    background-color: $main-blue;
+  }
+
+  .error{
+    color:red;
+  }
+}
+

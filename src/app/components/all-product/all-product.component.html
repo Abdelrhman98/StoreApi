@@ -1,0 +1,61 @@
+
+
+<div class="container">
+<div class="row justify-content-center align-item-center sorter ">
+
+  <mat-form-field appearance="fill" class="col-sm-12 col-md-6 col-lg-4 " >
+  <mat-label>Sort By Price</mat-label>
+  <mat-select #clientValue  (selectionChange)="sortDataByOrder($event.value)">
+    <mat-option value="ASC">ASC</mat-option>
+    <mat-option value="DESC">DESC</mat-option>
+  </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="col-sm-12 col-md-6 col-lg-4">
+  <mat-label>Categories</mat-label>
+  <mat-select #clientValue  (selectionChange)="sortByCategory($event.value)">
+    <mat-option   value="All">All</mat-option>
+    <mat-option   *ngFor = "let category of categories"value={{category}}>{{category}}</mat-option>
+
+  </mat-select>
+  </mat-form-field>
+<!-- <img src="https://via.placeholder.com/250" alt=""> -->
+</div>
+<button mat-raised-button class="ratingL" (click)="sortDataByRating()" >Get High Rated Products</button>
+
+
+  <div class="row justify-content-between gx-5">
+    <div class="product-card col-sm-12 col-md-6 col-lg-4  " *ngFor="let product of products">
+      <!-- Post-->
+      <div class="post-module hover">
+        <!-- Thumbnail-->
+        <div class="thumbnail">
+          <div class="date">
+            <div class="day">{{product.price}}</div>
+            <div class="month">EGP</div>
+          </div>
+          <img src="{{product.image}}"/>
+        </div>
+        <!-- Post Content-->
+        <div class="post-content">
+          <div class="category">{{product.category}}</div>
+          <h1 class="title">{{product.title.slice(0,40)}}</h1>
+
+            <h2 class="sub_title">Rate</h2>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="background-color: {{product.rating.rate|ratingColor}};width:{{product.rating.rate|toPercentage}}" color="red" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{product.rating.rate}}/5 ( {{product.rating.rate|toPercentage}} )</div>
+            </div>
+
+          <div>
+            <p class="description">{{product.description.slice(0,90)}}</p>
+          </div>
+          <div class="post-meta row row-cols-3">
+              <button mat-stroked-button (click)="goToDetails(product.id)"> Details</button>
+              <button mat-stroked-button (click)="goToEdit(product.id)"> Edit </button>
+              <button mat-stroked-button (click)="deleteProductById(product.id)">Delete</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
